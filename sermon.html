@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Devotional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=Playfair+Display:wght@500;600&family=IM+Fell+English&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="sermon.css" />
+  <link rel="stylesheet" href="button-hints.css" />
+</head>
+<body>
+  <main class="devotional-shell">
+    <header class="topline site-header">
+      <button id="mobile-menu-toggle" type="button" aria-controls="header-menu" aria-label="Open header menu" aria-expanded="false">＋</button>
+      <nav id="header-menu" class="topline-actions" aria-label="App tools">
+        <a class="sermon-header-icon" href="index.html?headerTool=music" title="Music" aria-label="Open music and scores">♫</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=dictionary" title="Dictionary" aria-label="Open the word dictionary">Aa</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=bible-dictionary" title="Bible dictionary" aria-label="Open Bible dictionaries">B</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=prayers" title="Prayer" aria-label="Choose a prayer">⛪</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=inquiry" title="Inquiry" aria-label="Open devotional and survey">🙏</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=backup" title="Save/Load App" aria-label="Open saved app tools">💾</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=bible-download" title="Download all" aria-label="Download the complete Bible">📖</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=content-downloads" title="Download selected content" aria-label="Download selected content">⬇</a>
+        <a class="sermon-header-icon" href="index.html?headerTool=help" title="How to use this app" aria-label="Open the app guide">?</a>
+        <button id="font-toggle" class="sermon-header-icon brand-mark" type="button" aria-label="Switch to parchment and an old Bible typeface" aria-pressed="false" title="Switch to parchment and an old Bible typeface">✝</button>
+      </nav>
+      <a class="back-link" href="index.html">← Still Waters</a>
+    </header>
+    <section class="intro">
+      <p class="eyebrow">A moment in the Word</p>
+      <h1>Take a moment.<br><em>Find your footing.</em></h1>
+      <p class="subhead">A quiet devotional drawn from twenty-five KJV passages, with room to reflect and respond.</p>
+    </section>
+    <section class="day-picker" aria-label="Choose a date" hidden>
+      <label for="devotional-date">Devotional for</label>
+      <input id="devotional-date" type="date" />
+      <span id="day-index" class="day-index" hidden></span>
+    </section>
+    <div class="devotional-controls">
+      <button id="random-devotional" type="button">New devotional <span aria-hidden="true">↻</span></button>
+      
+    </div>
+    <section class="devotional-intro" aria-live="polite">
+      <p class="eyebrow" id="theme-label">DEVOTIONAL THEME</p>
+      <h2 id="theme-title">Loading a devotional…</h2>
+      <p id="theme-focus" class="theme-focus"></p>
+      <button id="prepare" class="prepare-button" type="button" disabled>Prepare this devotional <span aria-hidden="true">↗</span></button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+    <article id="devotional" class="devotional-content" hidden>
+      <header class="devotional-heading"><h2 id="devotional-title"></h2></header>
+      <section id="opening-section" class="devotional-part"><p class="part-label">Opening</p><div id="opening" class="devotional-prose"></div></section>
+      <section id="middle-section" class="devotional-part"><p class="part-label">Reflection</p><div id="middle" class="devotional-prose"></div></section>
+      <section id="closing-section" class="devotional-part"><p class="part-label">Closing</p><div id="closing" class="devotional-prose"></div></section>
+      <section id="reflection-section" class="reflection">
+        <p class="part-label">Questions to carry</p>
+        <ol id="questions"></ol>
+      </section>
+      <details class="scripture-list">
+        <summary><span>Full verses referenced</span><span id="scripture-count" class="passage-count"></span></summary>
+        <ol id="passages"></ol>
+      </details>
+      <nav id="devotional-downloads" class="devotional-downloads" aria-label="Download devotional">
+        <button id="download-devotional-txt" type="button">Download TXT</button>
+        <button id="download-devotional-pdf" type="button">Download PDF</button>
+        <button id="download-devotional-zip" type="button">Download ZIP</button>
+        <span id="download-devotional-status" role="status" aria-live="polite"></span>
+      </nav>
+      <section id="comments-section" class="devotional-comments" hidden><p class="part-label">Your comments</p><div id="comments-list"></div></section>
+    </article>
+    <p class="quiet-note"><span aria-hidden="true">✦</span>Let the words stay with you.</p>
+    <footer class="our-father-prayer" aria-labelledby="our-father-title">
+      <h2 id="our-father-title">Our Father</h2>
+      <div class="our-father-prayer-text">
+        <p>Our Father, who art in heaven, Hallowed be thy name.</p>
+        <p>Thy kingdom come, Thy will be done, On earth as it is in heaven.</p>
+        <p>Give us this day our daily bread, And forgive us our trespasses, As we forgive those who trespass against us.</p>
+        <p>And lead us not into temptation, But deliver us from evil.</p>
+        <p>For thine is the kingdom, And the power, And the glory, Forever and ever. Amen.</p>
+      </div>
+    </footer>
+    <div id="devotional-selection-tools" class="devotional-selection-tools" hidden>
+      <span id="selection-quote"></span><button id="highlight-selection" type="button">Highlight</button><button id="comment-selection" type="button">Comment</button>
+    </div>
+  </main>
+  <dialog id="comment-dialog" class="feature-dialog">
+    <form id="comment-form">
+      <header class="feature-dialog-heading"><div><p class="eyebrow">A note for this passage</p><h2>Comment</h2></div><button type="button" class="dialog-close" data-close-dialog aria-label="Close">×</button></header>
+      <blockquote id="comment-quote" class="comment-quote"></blockquote>
+      <label>Your comment <textarea id="comment-text" rows="5" maxlength="1200" placeholder="Add a thought to return to…" required></textarea></label>
+      <div class="feature-dialog-actions"><button type="button" class="text-button" data-close-dialog>Cancel</button><button type="submit" class="prepare-button">Save comment</button></div>
+    </form>
+  </dialog>
+  <script type="module" src="sermon.js"></script>
+  <script type="module" src="mobile-menu.js"></script>
+</body>
+</html>
